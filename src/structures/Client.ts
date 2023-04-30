@@ -36,8 +36,8 @@ export default class BotClient extends Client {
             await this.login(process.env.TOKEN as string);
             await this.commandHandler.registerCommands();
             await this.interactionHandler.registerInteractions();
-            // await mongoose.connect(mongo_URI)
-            // Logger.log("Connected to MongoDB", "log");
+            await mongoose.connect(mongo_URI)
+            Logger.log("Connected to MongoDB", "log");
         } catch (error) {
             Logger.error(error);
         }

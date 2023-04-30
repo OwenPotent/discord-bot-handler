@@ -11,7 +11,11 @@ export default {
     data: new SlashCommandBuilder()
         .setName('help')
         .setDescription('Replies with help!')
-        .addStringOption(option => option.setName("command").setDescription("Command to get help for").setRequired(false)),
+        .addStringOption(option => option
+            .setName("command")
+            .setDescription("Command to get help for")
+            .setRequired(false)
+            .setAutocomplete(true)),
     async execute(interaction: CommandInteraction): Promise<void> {
         const commandName = interaction.options.get("command")?.value as string | undefined;
 

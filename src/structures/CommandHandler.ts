@@ -24,9 +24,10 @@ export default class CommandHandler {
                 const command: Command = (await import(join(__dirname, "..", "commands", folder, file))).default;
                 commands.push(command.data.toJSON());
                 this.client.commands.set(command.data.name, command);
-                Logger.log(`Loaded command ${command.data.name}`, "log");
             }
         }
+
+        Logger.log(`Loaded ${commands.length} commands.`, "log")
 
         const rest: REST = new REST().setToken(process.env.TOKEN as string);
         try {

@@ -20,9 +20,11 @@ export default {
                             .setEmoji("👍")
                             .toJSON()
                     ]
-                }
+                },
             ],
             ephemeral: true
         });
+
+
     }
 } as Command;

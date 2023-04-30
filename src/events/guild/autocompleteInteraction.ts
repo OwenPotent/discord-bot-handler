@@ -3,20 +3,19 @@ import BotClient from "../../structures/Client";
 import Logger from "../../structures/Logger";
 
 export default {
-    name: "buttonInteraction",
+    name: "autocompleteInteraction",
     execute: async (client: BotClient) => {
         client.on("interactionCreate", async (interaction) => {
-            if (!interaction.isButton()) return;
+            if (!interaction.isAutocomplete()) return;
         
-            const button = client.buttons.get(interaction.customId);
+            const autocomplete = client.autocomplete.get(interaction.commandName);
         
-            if (!button) return;
+            if (!autocomplete) return;
         
             try {
-                await button.execute(interaction);
+                await autocomplete.execute(interaction, client);
             } catch (error) {
                 Logger.error(error);
-                await interaction.reply({ content: "There was an error while executing this button!", ephemeral: true });
             }
         });
     }

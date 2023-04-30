@@ -22,13 +22,13 @@ for (const folder of eventFolders) {
 
         try {
             event.execute(client);
-
-            Logger.log(`Event ${event.name} has been loaded`, "log")
         } catch (error) {
             Logger.error(error)
         }
     }
 }
+
+Logger.log(`Loaded ${eventFolders.length} events.`, "log")
 
 process.on("unhandledRejection", (error) => {
     Logger.error(error);

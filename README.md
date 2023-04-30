@@ -11,9 +11,9 @@ This is a template for a discord bot. It is written in Typescript and uses the [
 -   Database (MongoDB) [x]
 -   Logging [x]
 -   Button Handler [x]
--   Action Row Handler []
--   Autocomplete Handler []
--   Select Menu Handler []
+-   Action Row Handler [x]
+-   Autocomplete Handler [x]
+-   Select Menu Handler [x]
 
 ## Setup
 
